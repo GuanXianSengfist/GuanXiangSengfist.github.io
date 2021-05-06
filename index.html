@@ -35,9 +35,31 @@
       /*方法2-webkit-box-reflect:below 8px -webkit-linear-gradient(top,rgba(0,0,0,0)40%,rgba(0,0,0,.5)100%);*/
       /*5.设置图片倒影:直接记住吧(3个值。1. direction 定义方向，取值包括 above 、 below 、 left 、 right。);2. offset定义反射偏移的距离;3.mask-box-image定义遮罩图像，该图像将覆盖投影区域。如果省略该参数值，则默认为无遮罩图像。*/
     }
+    .centers p{
+      padding-top: 50px;
+      text-align: center;
+      color: red;
+    }
+    .annclick{
+      position: fixed;
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: red;
+      text-align: center;
+      cursor: pointer;
+    }
+    a{
+      text-decoration: none;
+      color: red;
+      transition: .5s all linear;
+    }
   </style>
 </head>
 <body>
+  <div class="centers">
+    <p>自定义标题</p>
+  </div>
 <div id="box">
   <img src="./img/01.jpg" >
   <img src="./img/02.jpg" >
@@ -52,6 +74,9 @@
   <img src="./img/03.jpg" >
   <img src="./img/04.jpg" >
 </div>
+<div class="annclick">
+  <div><a id="atit" href="./jiaoben1892/index.html">点击我</a></div>
+</div>
   <script>
   //   //js动态添加11个img标签
   //  //创建11个img标签的办法
@@ -62,6 +87,22 @@
   //  box.appendChild(imgs);}
         //当页面加载完毕后再执行代码
         window.onload=function ( ) {
+          // 文字放大缩小
+          function titles (){
+            var atit = document.getElementById('atit')
+            atit.style.fontSize = 30 + 'px'
+          }
+          function titlestwo (){
+            var atit = document.getElementById('atit')
+            atit.style.fontSize = 16 + 'px'
+          }
+          setInterval(function(){
+            titles()
+            setTimeout(function(){
+              titlestwo()
+            }, 500)
+          }, 1100)
+          
           //1.获取元素
           var oWrap=document.getElementById('box');
           var oImg=oWrap.children;
